@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
-import android.support.v7.widget.PopupMenu;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +17,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.widget.PopupMenu;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -118,21 +119,20 @@ public class ImageDialogView extends LinearLayout implements View.OnClickListene
             Log.e("yuyidong", "not activity");
             return false;
         }
-        switch (item.getItemId()) {
-            case R.id.action_gallery:
-                Intent albumIntent = new Intent(Intent.ACTION_PICK, null);
-                albumIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-                activity.startActivityForResult(albumIntent, REQUEST_GALLERY);
-                break;
-            case R.id.action_camera:
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                File file = new File(getContext().getExternalCacheDir().getAbsolutePath() + File.separator + "tmp" + mCurrentCameraPictureIndex + ".jpg");
-                if (file.exists()) {
-                    file.delete();
-                }
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-                activity.startActivityForResult(intent, REQUEST_CAMERA);
-                break;
+        if (item.getItemId() == R.id.action_gallery) {
+            Intent albumIntent = new Intent(Intent.ACTION_PICK, null);
+            albumIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+            activity.startActivityForResult(albumIntent, REQUEST_GALLERY);
+        }
+
+        if (item.getItemId() == R.id.action_camera) {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            File file = new File(getContext().getExternalCacheDir().getAbsolutePath() + File.separator + "tmp" + mCurrentCameraPictureIndex + ".jpg");
+            if (file.exists()) {
+                file.delete();
+            }
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+            activity.startActivityForResult(intent, REQUEST_CAMERA);
         }
         return false;
     }

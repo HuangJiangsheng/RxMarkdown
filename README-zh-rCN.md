@@ -2,6 +2,13 @@
 
 [![License](http://img.shields.io/:license-apache-blue.svg)](LICENSE.txt) [![API](https://img.shields.io/badge/API-9%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=9)  [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-RxMarkdown-green.svg?style=true)](https://android-arsenal.com/details/1/3967)
 
+# 更改 2024-12-07
+```groovy
+将gradle插件升级到8.0
+将目标SDK升级为34（Android 14）
+Gradle构建环境 java 17
+```
+
 RxMarkdown 是一个运用 RxJava API 在 `android.widget.TextView` 或 `android.widget.EditText` 中编辑和（实时）预览基本 markdown 语法的 Android 库，同时支持代码高亮。 
 
 注：RxMarkdown 暂时不支持 HTML 标签。

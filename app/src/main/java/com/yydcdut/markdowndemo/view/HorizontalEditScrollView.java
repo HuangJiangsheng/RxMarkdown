@@ -2,7 +2,7 @@ package com.yydcdut.markdowndemo.view;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -102,76 +102,51 @@ public class HorizontalEditScrollView extends FrameLayout implements View.OnClic
         if (mMarkdownEditText == null) {
             return;
         }
-        switch (v.getId()) {
-            case R.id.img_header1:
-                mHeaderController.doHeader(1);
-                break;
-            case R.id.img_header2:
-                mHeaderController.doHeader(2);
-                break;
-            case R.id.img_header3:
-                mHeaderController.doHeader(3);
-                break;
-            case R.id.img_header4:
-                mHeaderController.doHeader(4);
-                break;
-            case R.id.img_header5:
-                mHeaderController.doHeader(5);
-                break;
-            case R.id.img_header6:
-                mHeaderController.doHeader(6);
-                break;
-            case R.id.img_bold:
-                mStyleController.doBold();
-                break;
-            case R.id.img_italic:
-                mStyleController.doItalic();
-                break;
-            case R.id.img_center_align:
-                mCenterAlignController.doCenter();
-                break;
-            case R.id.img_horizontal_rules:
-                mHorizontalRulesController.doHorizontalRules();
-                break;
-            case R.id.img_todo:
-                mTodoController.doTodo();
-                break;
-            case R.id.img_todo_done:
-                mTodoController.doTodoDone();
-                break;
-            case R.id.img_strike_through:
-                mStrikeThroughController.doStrikeThrough();
-                break;
-            case R.id.img_inline_code:
-                mCodeController.doInlineCode();
-                break;
-            case R.id.img_code:
-                mCodeController.doCode();
-                break;
-            case R.id.img_block_quote:
-                mBlockQuotesController.doBlockQuotes();
-                break;
-            case R.id.img_unorder_list:
-                mListController.doUnOrderList();
-                break;
-            case R.id.img_order_list:
-                mListController.doOrderList();
-                break;
-            case R.id.img_link:
-                mLinkController.doImage();
-                break;
-            case R.id.img_photo:
-                mImageController.doImage();
-                break;
+        if (v.getId() == R.id.img_header1) {
+            mHeaderController.doHeader(1);
+        } else if (v.getId() == R.id.img_header2) {
+            mHeaderController.doHeader(2);
+        } else if (v.getId() == R.id.img_header3) {
+            mHeaderController.doHeader(3);
+        } else if (v.getId() == R.id.img_header4) {
+            mHeaderController.doHeader(4);
+        } else if (v.getId() == R.id.img_header5) {
+            mHeaderController.doHeader(5);
+        } else if (v.getId() == R.id.img_header6) {
+            mHeaderController.doHeader(6);
+        } else if (v.getId() == R.id.img_bold) {
+            mStyleController.doBold();
+        } else if (v.getId() == R.id.img_italic) {
+            mStyleController.doItalic();
+        } else if (v.getId() == R.id.img_center_align) {
+            mCenterAlignController.doCenter();
+        } else if (v.getId() == R.id.img_horizontal_rules) {
+            mHorizontalRulesController.doHorizontalRules();
+        } else if (v.getId() == R.id.img_todo) {
+            mTodoController.doTodo();
+        } else if (v.getId() == R.id.img_todo_done) {
+            mTodoController.doTodoDone();
+        } else if (v.getId() == R.id.img_strike_through) {
+            mStrikeThroughController.doStrikeThrough();
+        } else if (v.getId() == R.id.img_inline_code) {
+            mCodeController.doInlineCode();
+        } else if (v.getId() == R.id.img_code) {
+            mCodeController.doCode();
+        } else if (v.getId() == R.id.img_unorder_list) {
+            mListController.doUnOrderList();
+        } else if (v.getId() == R.id.img_order_list) {
+            mListController.doOrderList();
+        } else if (v.getId() == R.id.img_link) {
+            mLinkController.doImage();
+        } else if (v.getId() == R.id.img_photo) {
+            mImageController.doImage();
         }
     }
 
     @Override
     public boolean onLongClick(View v) {
-        switch (v.getId()) {
-            case R.id.img_block_quote:
-                mBlockQuotesController.addNestedBlockQuotes();
-                break;
+        if (v.getId() == R.id.img_block_quote) {
+            mBlockQuotesController.addNestedBlockQuotes();
         }
         return true;
     }

@@ -1,10 +1,11 @@
 package com.yydcdut.markdowndemo.controller;
 
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.yydcdut.markdown.MarkdownEditText;
 import com.yydcdut.markdowndemo.view.LinkDialogView;
