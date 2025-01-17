@@ -18,24 +18,21 @@
 // LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-package syntaxhighlight;
-
-import java.util.List;
+package syntaxhighlight
 
 /**
  * The parser for syntax highlight.
  *
  * @author Chan Wai Shing cws1989@gmail.com
  */
-public interface Parser {
-
+interface Parser {
     /**
-     * Parse the {@code content} and return the parsed result.
+     * Parse the `content` and return the parsed result.
      *
      * @param fileExtension the file extension of the content, null means not
-     *                      provided
+     * provided
      * @param content       the content
      * @return the parsed result
      */
-    List<ParseResult> parse(String fileExtension, String content);
+    fun parse(fileExtension: String?, content: String?): List<ParseResult>?
 }
